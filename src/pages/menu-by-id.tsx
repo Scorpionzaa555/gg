@@ -10,7 +10,7 @@ import { IconAlertTriangleFilled, IconEdit } from "@tabler/icons-react";
 export default function MenuByIdPage() {
   const { menuId } = useParams();
 
-  const { data: menu, isLoading, error } = useSWR<Menu>(`/menus/${menuId}`);
+  const { data: menus, isLoading, error } = useSWR<Menu>(`/menus/${menuId}`);
 
   return (
     <>
@@ -28,25 +28,25 @@ export default function MenuByIdPage() {
             </Alert>
           )}
 
-          {!!menu && (
+          {!!menus && (
             <>
-              <h1>{menu.name}</h1>
+              <h1>{menus.name}</h1>
               <p className="italic text-neutral-500 mb-4"></p>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
                   src={coffee}
-                  alt={menu.name}
+                  alt={menus.name}
                   className="w-full object-cover aspect-[3/4]"
                 />
                 <div className="col-span-2 px-4 space-y-2 py-4">
                   <h3>รายละเอียดเมนู</h3>
                   <p className="indent-4">
-                    {menu.detail}
+                    {menus.detail}
         
                   </p>
                   <h3>ราคา</h3>
                   <p className="indent-4">
-                    {menu.price}
+                    {menus.price}
         
                   </p>
                 </div>
@@ -58,7 +58,7 @@ export default function MenuByIdPage() {
                 color="blue"
                 size="xs"
                 component={Link}
-                to={`/menus/${menu.id}/edit`}
+                to={`/menus/${menus.id}/edit`}
                 className="mt-4"
                 leftSection={<IconEdit />}
               >

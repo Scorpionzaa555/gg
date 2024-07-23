@@ -3,6 +3,9 @@ export interface Book {
   title: string;
   author: string;
   year: number;
+  story: string;
+  detail: string;
+  catagory: string;
   is_published: boolean;
 }
 

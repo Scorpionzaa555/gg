@@ -15,9 +15,9 @@ export default function OrderByIdPage() {
   const { orderId } = useParams();
   const [, setIsProcessing] = useState(false);
   const navigate = useNavigate();
-  const { data: order, isLoading, error } = useSWR<Order>(`/orders/${orderId}`);
+  const { data: orders, isLoading, error } = useSWR<Order>(`/orders/${orderId}`);
 
-  const totalPrice = order ? order.price * order.quantity : 0;
+  const totalPrice = orders ? orders.price * orders.quantity : 0;
 
   const handleDelete = async () => {
     try {
@@ -72,29 +72,29 @@ export default function OrderByIdPage() {
             </Alert>
           )}
 
-          {!!order && (
+          {!!orders && (
             <>
-              <h1>{order.name}</h1>
+              <h1>{orders.name}</h1>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
                   src={coffee}
-                  alt={order.name}
+                  alt={orders.name}
                   className="w-full object-cover aspect-[3/4]"
                 />
                 <div className="col-span-2 px-4 space-y-2 py-4">
                   <h3>รายละเอียดการสั่งเมนู</h3>
                   <p className="indent-4">
-                    {order.name}
+                    {orders.name}
                   </p>
 
                   <h3>จำนวน</h3>
                   <p className="indent-4">
-                    {order.quantity}
+                    {orders.quantity}
                   </p>
 
                   <h3>ราคา(ต่อที่)</h3>
                   <p className="indent-4">
-                    {order.price}
+                    {orders.price}
                   </p>
 
                   <h3>ราคารวม</h3>
