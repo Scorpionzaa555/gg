@@ -1,5 +1,5 @@
 import { Alert, Button, Container, Divider } from "@mantine/core";
-import coffee from "../assets/images/coffee.png";
+import coffee from "../assets/images/coffee.jpg";
 import Layout from "../components/layout";
 import { useNavigate, useParams } from "react-router-dom";
 import { Order } from "../lib/models";
