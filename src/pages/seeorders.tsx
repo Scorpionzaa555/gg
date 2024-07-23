@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import cafeBackgroundImage from "../assets/images/bg-cafe-2.jpg";
-import coffee from "../assets/images/coffee.png";
+import coffee from "../assets/images/coffee.jpg";
 import useSWR from "swr";
 import { Order } from "../lib/models";
 import Loading from "../components/loading";
